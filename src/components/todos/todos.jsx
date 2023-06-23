@@ -9,7 +9,7 @@ const Todos = () => {
 	
 	const onClickHandler = ()=>{
 		if (showMore < 21) {
-			setShowMore(showMore++)
+			setShowMore(showMore+1)
 		}
 	}
 
@@ -35,9 +35,9 @@ const Todos = () => {
   return (
 		<div className="flex flex-col">
     <div className="flex justify-center items-center flex-wrap">
-      {myToDo.length > 0 ? myToDo.slice(0,(showMore*10)).map((todo) => {return <Todo key={crypto.randomUUID()} {...todo} onChangeHandler={onChangeHandler} />}):<Loading />}
+      {myToDo.length > 0 ? myToDo.slice(0,(showMore*50)).map((todo) => {return <Todo key={crypto.randomUUID()} {...todo} onChangeHandler={onChangeHandler} />}):<Loading />}
     </div>
-			{showMore===20 ? "" : <button onClick={onClickHandler} className="bg-lime-500 p-3 text-neutral-200 m-3 rounded-md">Show More</button>}
+			{(showMore===4 || myToDo.length<1) ? "" : <button onClick={onClickHandler} className="bg-lime-500 p-3 text-neutral-200 m-3 rounded-md">Show More</button>}
 		</div>
   );
 }
