@@ -17,9 +17,33 @@ const Todos = () => {
 		const findTodo = myToDo.filter((todo)=>{if (todo.id===id) {
 			todo.completed = !todo.completed
 		}})
-		console.log(findTodo);
 		setMyToDo([...myToDo,findTodo])
 	}
+
+	// const onChangeHandler = (id)=>{
+	// 	const findToDo = myToDo.find((todo)=>{return todo.id===id})
+	// 	if (findToDo.completed) {
+	// 		const changeTodo = (findToDo.completed=false)
+	// 		setMyToDo([...myToDo,changeTodo]);
+	// 	} else {
+	// 		const changeTodo = (findToDo.completed=true)
+	// 		setMyToDo([...myToDo,changeTodo]);
+	// 	}
+	// }
+
+	// const onChangeHandler = (id)=>{
+	// 	const updateToDoList = myToDo.map((todo) => {
+	// 		if (todo.id === id) {
+	// 			return {
+	// 				...todo,
+	// 				completed: !todo.completed
+	// 			};
+	// 		} else {
+	// 			return todo;
+	// 		}
+	// 	});
+	// 	setMyToDo(updateToDoList);
+	// }
 
   const getTodo = async () => {
     const toDoItems = await data();
