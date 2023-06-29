@@ -31,33 +31,33 @@ const Todos = () => {
 	// 	}
 	// }
 
-	// const onChangeHandler = (id)=>{
-	// 	const updateToDoList = myToDo.map((todo) => {
-	// 		if (todo.id === id) {
-	// 			return {
-	// 				...todo,
-	// 				completed: !todo.completed
-	// 			};
-	// 		} else {
-	// 			return todo;
-	// 		}
-	// 	});
-	// 	setMyToDo(updateToDoList);
-	// }
-
 	const onChangeHandler = (id)=>{
-		const findToDo = myToDo.find((todo)=>{return todo.id===id})
-		console.log(findToDo);
-		if (findToDo.completed) {
-			const changeTodo = {...findToDo,completed:false}
-			console.log(changeTodo);
-			setMyToDo([...myToDo,findToDo]);
-		} else {
-			const changeTodo = {...findToDo,completed:true}
-			console.log(changeTodo);
-			setMyToDo([...myToDo,findToDo]);
-		}
+		const updateToDoList = myToDo.map((todo) => {
+			if (todo.id === id) {
+				return {
+					...todo,
+					completed: !todo.completed
+				};
+			} else {
+				return todo;
+			}
+		});
+		setMyToDo(updateToDoList);
 	}
+
+	// const onChangeHandler = (id)=>{
+	// 	const findToDo = myToDo.find((todo)=>{return todo.id===id})
+	// 	console.log(findToDo);
+	// 	if (findToDo.completed) {
+	// 		const changeTodo = {...findToDo,completed:false}
+	// 		console.log(changeTodo);
+	// 		setMyToDo([...myToDo,findToDo]);
+	// 	} else {
+	// 		const changeTodo = {...findToDo,completed:true}
+	// 		console.log(changeTodo);
+	// 		setMyToDo([...myToDo,findToDo]);
+	// 	}
+	// }
 
   const getTodo = async () => {
     const toDoItems = await data();
